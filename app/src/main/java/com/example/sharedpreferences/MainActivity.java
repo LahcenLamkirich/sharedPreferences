@@ -34,8 +34,7 @@ public class MainActivity extends AppCompatActivity {
         btnLoad.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String userLoad = pref.getString("data","");
-                username.setText(userLoad);
+                username.setText(pref.getString("data", "empty"));
             }
         });
     }
