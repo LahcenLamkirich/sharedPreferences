@@ -11,7 +11,7 @@ import android.widget.EditText;
 public class MainActivity extends AppCompatActivity {
     SharedPreferences pref;
     Button btnSave, btnLoad;
-    EditText username;
+    EditText username, password;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -19,6 +19,7 @@ public class MainActivity extends AppCompatActivity {
         btnSave = findViewById(R.id.btnSave);
         btnLoad = findViewById(R.id.btnLoad);
         username = findViewById(R.id.username);
+        password = findViewById(R.id.password);
         // when we clicked the save button
         btnSave.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -26,15 +27,21 @@ public class MainActivity extends AppCompatActivity {
                 pref = getSharedPreferences("mypref", MODE_PRIVATE);
                 SharedPreferences.Editor edit = pref.edit();
                 String user = username.getText().toString();
-                edit.putString("data", user);
+                String pass = password.getText().toString();
+                edit.putString("user", user);
+                edit.putString("pass", pass);
                 edit.commit();
+                username.setText("");
+                password.setText("");
             }
         });
 
         btnLoad.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                username.setText(pref.getString("data", "empty"));
+                SharedPreferences pref = getSharedPreferences("mypref", MODE_PRIVATE);
+                username.setText(pref.getString("user", ""));
+                password.setText(pref.getString("pass", ""));
             }
         });
     }
