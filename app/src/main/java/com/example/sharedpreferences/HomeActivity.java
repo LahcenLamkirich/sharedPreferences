@@ -45,26 +45,33 @@ public class HomeActivity extends AppCompatActivity {
 
         SharedPreferences.Editor editor = pref.edit();
 
-        Boolean isNightModeOn = pref12.getBoolean("nightmode", false);
+//       Boolean isNightModeOn = pref12.getBoolean("nightmode", false);
+//
+//        if(isNightModeOn){
+//            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+//        }else {
+//            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+//        }
 
-        if(isNightModeOn){
-            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
-        }else {
-            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
-        }
+//        darkMode.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                if(isNightModeOn){
+//                    AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+//                    editor.putBoolean("nightmode", false);
+//                    editor.apply();
+//                }else {
+//                    AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+//                    editor.putBoolean("nightmode", true);
+//                    editor.apply();
+//                }
+//            }
+//        });
+        Boolean isNightModeOn = pref12.getBoolean("nightmode", false) ;
         darkMode.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(isNightModeOn){
-                    AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
-                    editor.putBoolean("nightmode", false);
-                    editor.apply();
-                }else {
-                    AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
-                    editor.putBoolean("nightmode", true);
-                    editor.apply();
-                }
-
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
             }
         });
     }

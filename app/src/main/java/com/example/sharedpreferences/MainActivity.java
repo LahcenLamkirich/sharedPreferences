@@ -26,8 +26,9 @@ public class MainActivity extends AppCompatActivity {
         pref = getSharedPreferences("mypref", MODE_PRIVATE);
 
 
-        String em = pref.getString("pass","");
-        if(em.trim() != null){
+        String em = pref.getString("email","empty");
+        String pass = pref.getString("pass", "empty");
+        if(em.trim() != null && pass.trim() != null){
             Intent intent = new Intent(MainActivity.this, HomeActivity.class);
             startActivity(intent);
         }
