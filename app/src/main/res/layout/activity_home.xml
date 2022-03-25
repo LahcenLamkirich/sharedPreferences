@@ -8,22 +8,34 @@
 
     <ImageView
         android:id="@+id/imageView2"
-        android:layout_width="337dp"
-        android:layout_height="330dp"
+        android:layout_width="322dp"
+        android:layout_height="257dp"
         android:layout_marginTop="24dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/welcome" />
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <View
+            android:layout_width="320dp"
+            android:layout_height="2dp"
+            android:layout_marginLeft="40dp"
+            android:layout_marginTop="270dp"
+            android:background="#D3D3D3" />
+    </LinearLayout>
+
     <TextView
         android:id="@+id/textView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="28dp"
+        android:layout_marginTop="30dp"
+        android:fontFamily="sans-serif"
         android:text="Email"
-        android:textSize="30dp"
-        android:fontFamily="sans-serif-condensed-medium"
+        android:textSize="24dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
@@ -33,7 +45,7 @@
         android:id="@+id/emailTxtView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="16dp"
         android:fontFamily="cursive"
         android:textSize="30dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -44,10 +56,10 @@
         android:id="@+id/textView6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="53dp"
+        android:layout_marginTop="24dp"
+        android:fontFamily="sans-serif"
         android:text="Password"
         android:textSize="30dp"
-        android:fontFamily="sans-serif-condensed-medium"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/emailTxtView" />
@@ -56,10 +68,11 @@
         android:id="@+id/passwordTxtView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="16dp"
         android:fontFamily="cursive"
         android:textSize="30dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.501"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView6" />
 </androidx.constraintlayout.widget.ConstraintLayout>
