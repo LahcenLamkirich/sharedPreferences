@@ -3,6 +3,7 @@ package com.example.sharedpreferences;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
@@ -19,7 +20,7 @@ public class HomeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
-        SharedPreferences pref12 = getSharedPreferences("darkModePref", 0);
+        SharedPreferences pref12 = getApplicationContext().getSharedPreferences("mypref", 0);
 
         Toast.makeText(HomeActivity.this,"Logged Successfully !", Toast.LENGTH_SHORT).show();
         email = findViewById(R.id.emailTxtView);
@@ -38,6 +39,8 @@ public class HomeActivity extends AppCompatActivity {
                 edit.commit();
                 Toast.makeText(HomeActivity.this, "Log Out Succesfully", Toast.LENGTH_SHORT).show();
                 finish();
+                Intent intent = new Intent(HomeActivity.this, MainActivity.class);
+                startActivity(intent);
             }
         });
 
@@ -45,34 +48,37 @@ public class HomeActivity extends AppCompatActivity {
 
         SharedPreferences.Editor editor = pref.edit();
 
-//       Boolean isNightModeOn = pref12.getBoolean("nightmode", false);
-//
-//        if(isNightModeOn){
-//            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
-//        }else {
-//            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
-//        }
+       Boolean isNightModeOn = pref12.getBoolean("nightmode", false);
 
-//        darkMode.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                if(isNightModeOn){
-//                    AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
-//                    editor.putBoolean("nightmode", false);
-//                    editor.apply();
-//                }else {
-//                    AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
-//                    editor.putBoolean("nightmode", true);
-//                    editor.apply();
-//                }
-//            }
-//        });
-        Boolean isNightModeOn = pref12.getBoolean("nightmode", false) ;
+        if(isNightModeOn){
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+        }else {
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+        }
+
         darkMode.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+                if(isNightModeOn){
+                    AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+                    editor.putBoolean("nightmode", false);
+                    editor.apply();
+                }else {
+                    AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+                    editor.putBoolean("nightmode", true);
+                    editor.apply();
+                }
             }
         });
+
+
+//        Boolean isNightModeOn = pref12.getBoolean("nightmode", false) ;
+//        darkMode.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+//            }
+//        });
     }
+
 }
