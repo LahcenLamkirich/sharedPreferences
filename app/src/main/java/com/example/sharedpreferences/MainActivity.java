@@ -40,7 +40,7 @@ public class MainActivity extends AppCompatActivity {
                 String pass = password.getText().toString();
                 edit.putString("email", user);
                 edit.putString("pass", pass);
-                edit.commit();
+                edit.apply();
                 email.setText("");
                 password.setText("");
                 Intent i = new Intent(MainActivity.this, HomeActivity.class);
