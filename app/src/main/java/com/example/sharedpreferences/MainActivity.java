@@ -23,13 +23,17 @@ public class MainActivity extends AppCompatActivity {
         btnLoad = findViewById(R.id.btnLoad);
         email = findViewById(R.id.email);
         password = findViewById(R.id.password);
+        pref = getSharedPreferences("mypref", MODE_PRIVATE);
 
-
+        String em = pref.getString("email","");
+        if(em != null){
+            Intent intent = new Intent(MainActivity.this, HomeActivity.class);
+            startActivity(intent);
+        }
         // when we clicked the save button
         btnSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                pref = getSharedPreferences("mypref", MODE_PRIVATE);
                 SharedPreferences.Editor edit = pref.edit();
                 String user = email.getText().toString();
                 String pass = password.getText().toString();
@@ -44,11 +48,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        String emai = pref.getString("email","");
-        if(emai != null){
-            Intent intent = new Intent(MainActivity.this, HomeActivity.class);
-            startActivity(intent);
-        }
+
 
         btnLoad.setOnClickListener(new View.OnClickListener() {
             @Override
