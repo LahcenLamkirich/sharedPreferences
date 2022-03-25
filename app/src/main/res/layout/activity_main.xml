@@ -20,7 +20,7 @@
         tools:ignore="MissingConstraints" />
 
     <EditText
-        android:id="@+id/username"
+        android:id="@+id/email"
         android:layout_width="287dp"
         android:layout_height="50dp"
         android:ems="10"
@@ -55,7 +55,6 @@
         android:layout_marginTop="40dp"
         android:fontFamily="cursive"
         android:text="Email"
-        android:textColor="@color/userPass"
         android:textSize="27dp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
@@ -69,7 +68,6 @@
         android:layout_height="wrap_content"
         android:fontFamily="cursive"
         android:text="Password"
-        android:textColor="@color/userPass"
         android:textSize="27dp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/btnSave"
