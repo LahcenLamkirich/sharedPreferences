@@ -17,15 +17,18 @@
         app:srcCompat="@drawable/welcome" />
 
     <LinearLayout
+        android:id="@+id/linearLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
+
         <View
             android:layout_width="320dp"
             android:layout_height="2dp"
             android:layout_marginLeft="40dp"
             android:layout_marginTop="270dp"
             android:background="#D3D3D3" />
+
     </LinearLayout>
 
     <TextView
@@ -36,6 +39,7 @@
         android:fontFamily="sans-serif"
         android:text="Email"
         android:textSize="24dp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
@@ -59,7 +63,8 @@
         android:layout_marginTop="24dp"
         android:fontFamily="sans-serif"
         android:text="Password"
-        android:textSize="30dp"
+        android:textSize="24dp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/emailTxtView" />
@@ -75,4 +80,15 @@
         app:layout_constraintHorizontal_bias="0.501"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView6" />
+
+    <Button
+        android:id="@+id/logOut"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="100dp"
+        android:text="Log Out"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.501"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/passwordTxtView" />
 </androidx.constraintlayout.widget.ConstraintLayout>

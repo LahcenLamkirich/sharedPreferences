@@ -18,15 +18,16 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Toast.makeText(this, "Register Page", Toast.LENGTH_LONG).show();
+        Toast.makeText(this, "Register Page", Toast.LENGTH_SHORT).show();
         btnSave = findViewById(R.id.btnSave);
         btnLoad = findViewById(R.id.btnLoad);
         email = findViewById(R.id.email);
         password = findViewById(R.id.password);
         pref = getSharedPreferences("mypref", MODE_PRIVATE);
 
-        String em = pref.getString("email","");
-        if(em != null){
+
+        String em = pref.getString("pass","");
+        if(em.trim() != null){
             Intent intent = new Intent(MainActivity.this, HomeActivity.class);
             startActivity(intent);
         }
@@ -44,7 +45,6 @@ public class MainActivity extends AppCompatActivity {
                 password.setText("");
                 Intent i = new Intent(MainActivity.this, HomeActivity.class);
                 startActivity(i);
-
             }
         });
 
